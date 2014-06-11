@@ -1,0 +1,200 @@
+<div data-role="view" id="signup" data-layout="default" class="signup-view" data-model="app.Trial">
+    <div data-role="header">
+        <div data-role="navbar">
+            <h2 class="app-name center-text">Register Yourself</h2>
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton" href="#welcome">Back</a>
+        </div>
+    </div>
+    <!--<head>
+    <script>
+        var Recrux = Recrux || {};
+    </script>
+    <meta name="viewport"
+        content="width=device-width" />
+    <script src="../kendo/js/jquery.min.js"></script>
+    <script src="../kendo/js/kendo.mobile.min.js"></script>
+    <link href="../kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+
+
+    <title>Sign Up</title>
+
+
+</head>-->
+
+
+
+    <form id="Form1">
+        <ul id="signup-form" data-role="listview" data-style="inset">
+            <li>
+                <input type="text" id="usracc-firstName" placeholder="First Name"
+                    data-bind="value: name" />
+            </li>
+            <li>
+                <input type="text" id="usracc-lastName" placeholder="Last Name"
+                    data-bind="value: lastname" />
+            </li>
+            <li>
+               <input type="text" id="usracc-contact" placeholder="Contact No"
+                   data-bind="value: contact" />
+            </li>
+
+            <li>
+                <input type="text" id="usracc-emailaddress" placeholder="Email"
+                    data-bind="value: email" />
+            </li>
+            <li>
+               <input type="date" id="usracc-dob"
+                   data-bind="value: dob" />
+
+            </li>
+            <li>
+               <input type="text" id="usracc-exp" placeholder="Experience"
+                   data-bind="value: experience" />
+
+            </li>
+
+            <li>
+                <input type="text" id="usracc-company" placeholder="Current Company"
+                    data-bind="value: currentcompany" />
+            </li>
+
+            <li>
+                <input type="text" id="usracc-currentsalary" placeholder="Current Salary"
+                    data-bind="value: currentsalary" />
+            </li>
+            <li>
+                <input type="text" id="usracc-expectedsalary" placeholder="Expected Salary"
+                    data-bind="value: expectedsalary" />
+            </li>
+
+            <li>
+              <input type="text" id="usracc-noticeperiod" placeholder="Notice Period"
+                  data-bind="value: noticeperiod" />
+            </li>
+            <li class="select-wrp">
+                <select id="signupHighlevelPicker" data-bind="value: Gender" onchange="app.Signup.onSelectChange(this)">
+                    <option value="0" selected>High Level Skill</option>
+                    <option value="1">.NET</option>
+                    <option value="2">JAVA</option>
+                </select>
+            </li>
+            <li class="select-wrp">
+                <select id="signupLowLevelPicker" data-bind="value: Gender" onchange="app.Signup.onSelectChange(this)">
+                    <option value="0" selected>Low Level Skill</option>
+                    <option value="1">html</option>
+                    <option value="2">css</option>
+                    <option value="2">javascript</option>
+                    <option value="2">mvc</option>
+                </select>
+            </li>
+            <li class="select-wrp">
+                <select id="drivePicker" data-bind="value: Gender" onchange="app.Signup.onSelectChange(this)">
+                    <option value="0" selected>Drive</option>
+                    <option value="1">Referrals for IT IS Drive @Chennai</option>
+                    <option value="2">TAG invites Java/J2EE  Referrals for Walk-in Recruitment Drive @Chennai</option>
+                    <option value="2">TAG invites Java/J2EE  Referrals for Walk-in Recruitment Drive @Pune</option>
+                    <option value="2">TAG | BPS - Inviting Referrals for Process executive @Gurgaon</option>
+                    <option value="2">TAG invites Referrals for Opportunities in EAS @Pune</option>
+
+                </select>
+            </li>
+
+            <!--<li class="txtarea-wrp">
+                <textarea id="signupInfo" data-bind="value: About" placeholder="About">User account created from the hybrid app.</textarea>
+            </li>-->
+        </ul>
+    </form>
+    <div id="signupBtnWrp" class="signup-btn-wrp">
+        <a class="btn btn-signup" data-role="button" data-bind="click: updateUserDetails">Register</a>
+    </div>
+
+
+
+
+
+    <!-- <script>
+        var application = new kendo.mobile.Application(document.body,
+
+  {
+      //initial: "movie", 
+      loading: "<h1>Loading...</h1>",
+      //platform: "android",
+      transition: 'fade'
+  });
+    </script>-->
+
+
+
+
+    <!--</div>-->
+
+    <script>
+
+        //var app = app || {};
+        //app.Trial = (function () {
+
+       // debugger;
+        'use strict';
+        var viewModel = kendo.observable({
+            name: "",
+            lastname: "",
+            expectedsalary: "",
+            currentsalary: "",
+            email: "",
+            contact: "",
+            dob: "",
+            experience: "",
+            currentcompany: "",
+            currentsalary: "",
+            expectedsalary: "",
+            noticeperiod: "",
+
+
+            updateUserDetails: function () {
+
+
+               // debugger;
+                jQuery.support.cors = true;
+                $.ajax({
+                    cache: false,
+                    requestType: "GET",
+                    dataType: "JSON",
+                    url: "http://localhost:49253/api/recruit/InterviewDetails",
+
+                    //data: {
+                    //    name: viewModel.get("name"),
+                    //    surname: viewModel.get("surname"),
+                    //    address: viewModel.get("address"),
+                    //    email: viewModel.get("email")
+                    //},
+
+                    success: function (data) {
+                     //   debugger;
+
+                        viewModel.set("name", data.FirstName);
+                        viewModel.set("lastname", data.LastName);
+                        viewModel.set("expectedsalary", data.ExpectedSalary);
+                        viewModel.set("currentsalary", data.CurrentSalary);
+                        viewModel.set("email", data.EmailId);
+                        viewModel.set("contact", data.ContactNumber);
+                        viewModel.set("dob", data.DOB);
+                        viewModel.set("experience", data.Experience);
+                        viewModel.set("currentcompany", data.CurrentOrganization);
+                        viewModel.set("currentsalary", data.CurrentSalary);
+                        viewModel.set("expectedsalary", data.ExpectedSalary);
+                        viewModel.set("noticeperiod", data.NoticePeriod);
+                    },
+
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        //debugger;
+                        alert(textStatus + ":" + errorThrown);
+                    }
+                });
+
+            }
+        });
+
+
+        kendo.bind($("#signUp"), viewModel);
+        ////})();
+    </script>
