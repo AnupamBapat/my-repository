@@ -26,7 +26,21 @@ app.Trial = (function () {
             //    data: JSON.stringify(name = ""),
             //    contentType: "application/json"
             //}
-            var testData = { FirstName: "Scott", LastName: "HP", EmailId: "ADD" };
+            var testData = {                
+                FirstName: viewModel.get("name"),
+                LastName: viewModel.get("lastname"),
+                //address: viewModel.get("address")
+                //email: viewModel.get("expectedsalary"),
+                //email: viewModel.get("currentsalary"),
+                EmailId: viewModel.get("email"),
+                //email: viewModel.get("contact"),
+                //email: viewModel.get("dob"),
+                //email: viewModel.get("experience"),
+                //email: viewModel.get("currentcompany"),
+                //email: viewModel.get("currentsalary"),
+                //email: viewModel.get("expectedsalary"),
+                //email: viewModel.get("noticeperiod")
+};
             $.ajax({
                 type: "POST",
                 data: JSON.stringify(testData),
@@ -36,11 +50,8 @@ app.Trial = (function () {
 
                 success: function (data) {
                     
-alter("Test");
-                    viewModel.set("name", data.FirstName);
-                    viewModel.set("surname", data.LastName);
-                    viewModel.set("address", data.Address);
-                    viewModel.set("email", data.emailAddress);
+Alert("Test");
+                    
 
 
                 },
