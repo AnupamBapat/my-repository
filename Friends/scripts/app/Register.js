@@ -30,7 +30,7 @@ app.Trial = (function () {
             $.ajax({
                 type: "POST",
                 data: JSON.stringify(testData),
-                url: "http://localhost:52812/api/Candidate/InsertCandidateDetails",
+                url: "https://betamike.cognizant.com/api/Candidate/InsertCandidateDetails",
                 contentType: "application/json",
                 //  });                
 
