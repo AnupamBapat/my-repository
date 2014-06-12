@@ -5,7 +5,7 @@ var app = app || {};
 
 app.Trial = (function () {
     'use strict';
-
+Alert("Hi");
     var viewModel = kendo.observable({
             name: "",
             lastname: "",
