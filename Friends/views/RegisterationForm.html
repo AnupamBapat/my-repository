@@ -23,7 +23,7 @@
 
 
 
-    <form id="Form1">
+    <form id="signUp">
         <ul id="signup-form" data-role="listview" data-style="inset">
             <li>
                 <input type="text" id="usracc-firstName" placeholder="First Name"
@@ -133,7 +133,7 @@
         //var app = app || {};
         //app.Trial = (function () {
 
-       // debugger;
+
         'use strict';
         var viewModel = kendo.observable({
             name: "",
@@ -150,43 +150,88 @@
             noticeperiod: "",
 
 
+            //updateUserDetails: function () {
+
+
+            //    debugger;
+            //    jQuery.support.cors = true;
+            //    $.ajax({
+            //        cache: false,
+            //        requestType: "GET",
+            //        dataType: "JSON",
+            //        url: "http://localhost:49253/api/recruit/InterviewDetails",
+
+            //        //data: {
+            //        //    name: viewModel.get("name"),
+            //        //    surname: viewModel.get("surname"),
+            //        //    address: viewModel.get("address"),
+            //        //    email: viewModel.get("email")
+            //        //},
+
+            //        success: function (data) {
+            //            debugger;
+
+            //            viewModel.set("name", data.FirstName);
+            //            viewModel.set("lastname", data.LastName);
+            //            viewModel.set("expectedsalary", data.ExpectedSalary);
+            //            viewModel.set("currentsalary", data.CurrentSalary);
+            //            viewModel.set("email", data.EmailId);
+            //            viewModel.set("contact", data.ContactNumber);
+            //            viewModel.set("dob", data.DOB);
+            //            viewModel.set("experience", data.Experience);
+            //            viewModel.set("currentcompany", data.CurrentOrganization);
+            //            viewModel.set("currentsalary", data.CurrentSalary);
+            //            viewModel.set("expectedsalary", data.ExpectedSalary);
+            //            viewModel.set("noticeperiod", data.NoticePeriod);
+            //        },
+
+            //        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //            debugger;
+            //            alert(textStatus + ":" + errorThrown);
+            //        }
+            //    });
+
+
+
+
+
+            //}
+
+
             updateUserDetails: function () {
 
 
-               // debugger;
+             
                 jQuery.support.cors = true;
+                var getdata = {
+                    name: viewModel.get("name"),
+                    surname: viewModel.get("lastname"),
+                    address: viewModel.get("address"),
+                    email: viewModel.get("expectedsalary"),
+                    email: viewModel.get("currentsalary")
+                    
+                };
                 $.ajax({
                     cache: false,
-                    requestType: "GET",
+                    requestType: "POST",
                     dataType: "JSON",
-                    url: "http://localhost:49253/api/recruit/InterviewDetails",
-
-                    //data: {
-                    //    name: viewModel.get("name"),
-                    //    surname: viewModel.get("surname"),
-                    //    address: viewModel.get("address"),
-                    //    email: viewModel.get("email")
-                    //},
+                    contentType: "application/json",
+                    url: "https://betamike/api/Candidate/InsertCandidateDetails",
+                    data: JSON.stringify(getdata),
 
                     success: function (data) {
-                     //   debugger;
+                  
+                        if (data == true) {
+                            alert('User Registered successfully...');
+                        }
+                        else
+                            alert('Unable to register');
+                        
 
-                        viewModel.set("name", data.FirstName);
-                        viewModel.set("lastname", data.LastName);
-                        viewModel.set("expectedsalary", data.ExpectedSalary);
-                        viewModel.set("currentsalary", data.CurrentSalary);
-                        viewModel.set("email", data.EmailId);
-                        viewModel.set("contact", data.ContactNumber);
-                        viewModel.set("dob", data.DOB);
-                        viewModel.set("experience", data.Experience);
-                        viewModel.set("currentcompany", data.CurrentOrganization);
-                        viewModel.set("currentsalary", data.CurrentSalary);
-                        viewModel.set("expectedsalary", data.ExpectedSalary);
-                        viewModel.set("noticeperiod", data.NoticePeriod);
+                      
                     },
-
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
-                        //debugger;
+                    
                         alert(textStatus + ":" + errorThrown);
                     }
                 });
