@@ -43,7 +43,7 @@ app.Trial = (function () {
                     requestType: "POST",
                     dataType: "JSON",
                     contentType: "application/json",
-                    url: "http://localhost:49253/api/Candidate/InsertCandidateDetails",
+                    url: "https://betamike.cognizant.com/api/Candidate/InsertCandidateDetails",
                     data: JSON.stringify(getdata),
 
                     success: function (data) {
