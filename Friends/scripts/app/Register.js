@@ -5,69 +5,157 @@ var app = app || {};
 
 app.Trial = (function () {
     'use strict';
-Alert("Hi");
+
     var viewModel = kendo.observable({
-            name: "",
-            lastname: "",
-            expectedsalary: "",
-            currentsalary: "",
-            email: "",
-            contact: "",
-            dob: "",
-            experience: "",
-            currentcompany: "",         
-            noticeperiod: "",
-
-            updateUserDetails: function () {
+        name: "",
+        surname: "",
+        address: "",
+        email: "",
 
 
-           
-                jQuery.support.cors = true;
-                var getdata = {
-                    name: viewModel.get("name"),
-                    surname: viewModel.get("lastname"),
-                    address: viewModel.get("address"),
-                    email: viewModel.get("expectedsalary"),
-                    //email: viewModel.get("currentsalary"),
-                    //email: viewModel.get("email"),
-                    //email: viewModel.get("contact"),
-                    //email: viewModel.get("dob"),
-                    //email: viewModel.get("experience"),
-                    //email: viewModel.get("currentcompany"),
-                    //email: viewModel.get("currentsalary"),
-                    //email: viewModel.get("expectedsalary"),
-                    //email: viewModel.get("noticeperiod")
-                };
-                $.ajax({
-                    cache: false,
-                    requestType: "POST",
-                    dataType: "JSON",
-                    contentType: "application/json",
-                    url: "https://betamike.cognizant.com/api/Candidate/InsertCandidateDetails",
-                    data: JSON.stringify(getdata),
-
-                    success: function (data) {
-                     
-                        if (data == true) {
-                            alert('User Registered successfully...');
-                        }
-                        else
-                            alert('Unable to register');
+        updateUserDetails: function () {
 
 
+          
+            jQuery.support.cors = true;
+            //var updateOptions = {
 
-                    },
-                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //    url: "http://localhost:52812/api/recruit/SaveInterviewDetails",
+            //    Type: "POST",
+            //    dataType: "JSON",
+            //    data: JSON.stringify(name = ""),
+            //    contentType: "application/json"
+            //}
+            var testData = { FirstName: "Scott", LastName: "HP", EmailId: "ADD" };
+            $.ajax({
+                type: "POST",
+                data: JSON.stringify(testData),
+                url: "http://localhost:52812/api/Candidate/InsertCandidateDetails",
+                contentType: "application/json",
+                //  });                
+
+                success: function (data) {
                     
-                        alert(textStatus + ":" + errorThrown);
-                    }
-                });
+alter("Test");
+                    viewModel.set("name", data.FirstName);
+                    viewModel.set("surname", data.LastName);
+                    viewModel.set("address", data.Address);
+                    viewModel.set("email", data.emailAddress);
 
-            }
-        });
+
+                },
+
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                  
+                    alert(textStatus + ":" + errorThrown);
+                }
+            });
+
+        }
+    });
 
 
-        kendo.bind($("#signUp"), viewModel);
+    kendo.bind($("#signup-form"), viewModel);
+    //})();
+
+
+
+    //var viewModel = kendo.observable({
+    //        name: "",
+    //        lastname: "",
+    //        expectedsalary: "",
+    //        currentsalary: "",
+    //        email: "",
+    //        contact: "",
+    //        dob: "",
+    //        experience: "",
+    //        currentcompany: "",         
+    //        noticeperiod: "",
+    //        updateUserDetails: function () {
+
+
+    //            debugger;
+    //            jQuery.support.cors = true;
+    //            var getdata = {
+    //                FirstName: viewModel.get("name"),
+    //                LastName: viewModel.get("lastname"),
+    //                //address: viewModel.get("address")
+    //                //email: viewModel.get("expectedsalary"),
+    //                //email: viewModel.get("currentsalary"),
+    //                EmailId: viewModel.get("email"),
+    //                //email: viewModel.get("contact"),
+    //                //email: viewModel.get("dob"),
+    //                //email: viewModel.get("experience"),
+    //                //email: viewModel.get("currentcompany"),
+    //                //email: viewModel.get("currentsalary"),
+    //                //email: viewModel.get("expectedsalary"),
+    //                //email: viewModel.get("noticeperiod")
+    //            };
+    //            $.ajax({
+
+    //                type: "POST",
+    //                data: JSON.stringify(getdata),
+    //                url: "http://localhost:52812/api/recruit/InsertCandidateDetails",
+    //                contentType: "application/json",
+    //                success: function (data) {
+    //                    alert("Test");
+    //                    debugger;
+    //                }
+
+    //            });
+
+
+    //        }
+
+    //        //updateUserDetails: function () {
+
+
+    //        //    debugger;
+    //        //    jQuery.support.cors = true;
+    //        //    var getdata = {
+    //        //        name: "abc",//viewModel.get("name"),
+    //        //        surname: "a",//viewModel.get("lastname"),
+    //        //        address: "aa",//viewModel.get("address"),
+    //        //        email: "a"//viewModel.get("expectedsalary"),                    
+    //        //        //email: viewModel.get("currentsalary"),
+    //        //        //email: viewModel.get("email"),
+    //        //        //email: viewModel.get("contact"),
+    //        //        //email: viewModel.get("dob"),
+    //        //        //email: viewModel.get("experience"),
+    //        //        //email: viewModel.get("currentcompany"),
+    //        //        //email: viewModel.get("currentsalary"),
+    //        //        //email: viewModel.get("expectedsalary"),
+    //        //        //email: viewModel.get("noticeperiod")
+    //        //    };
+    //        //    $.ajax({
+    //        //        type: "POST",
+    //        //        data: JSON.stringify(getdata),
+    //        //        url: "http://localhost:52812/api/Candidate/InsertCandidateDetails",
+    //        //        contentType: "application/json",
+                    
+
+    //        //        success: function (data) {
+                     
+    //        //            if (data == true) {
+    //        //                alert('User Registered successfully...');
+    //        //            }
+    //        //            else
+    //        //                alert('Unable to register');
+
+
+
+    //        //        },
+    //        //        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    
+    //        //            alert(textStatus + ":" + errorThrown);
+    //        //        }
+    //        //    });
+
+    //        //}
+    //    });
+
+
+    //    kendo.bind($("#signUp"), viewModel);
 
         return viewModel;
 
