@@ -5,7 +5,7 @@
             <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton" href="#welcome">Back</a>
         </div>
     </div>
-    <!--<head>
+<!--    <head>
     <script>
         var Recrux = Recrux || {};
     </script>
@@ -23,7 +23,7 @@
 
 
 
-    <form id="signUp">
+    <form id="Form1">
         <ul id="signup-form" data-role="listview" data-style="inset">
             <li>
                 <input type="text" id="usracc-firstName" placeholder="First Name"
@@ -70,7 +70,7 @@
             <li>
               <input type="text" id="usracc-noticeperiod" placeholder="Notice Period"
                   data-bind="value: noticeperiod" />
-            </li> 
+            </li>
             <li class="select-wrp">
                 <select id="signupHighlevelPicker" data-bind="value: Gender" onchange="app.Signup.onSelectChange(this)">
                     <option value="0" selected>High Level Skill</option>
@@ -128,12 +128,12 @@
 
     <!--</div>-->
 
-    <script>
+ <!--   <script>
 
         //var app = app || {};
         //app.Trial = (function () {
 
-
+   
         'use strict';
         var viewModel = kendo.observable({
             name: "",
@@ -201,34 +201,41 @@
             updateUserDetails: function () {
 
 
-             alert('Hi');
+           
                 jQuery.support.cors = true;
                 var getdata = {
                     name: viewModel.get("name"),
                     surname: viewModel.get("lastname"),
                     address: viewModel.get("address"),
                     email: viewModel.get("expectedsalary"),
-                    email: viewModel.get("currentsalary")
-                    
+                    //email: viewModel.get("currentsalary"),
+                    //email: viewModel.get("email"),
+                    //email: viewModel.get("contact"),
+                    //email: viewModel.get("dob"),
+                    //email: viewModel.get("experience"),
+                    //email: viewModel.get("currentcompany"),
+                    //email: viewModel.get("currentsalary"),
+                    //email: viewModel.get("expectedsalary"),
+                    //email: viewModel.get("noticeperiod")
                 };
                 $.ajax({
                     cache: false,
                     requestType: "POST",
                     dataType: "JSON",
                     contentType: "application/json",
-                    url: "https://betamike.cognizant.com/api/Candidate/InsertCandidateDetails",
+                    url: "http://localhost:49253/api/Candidate/InsertCandidateDetails",
                     data: JSON.stringify(getdata),
 
                     success: function (data) {
-                  
+                     
                         if (data == true) {
                             alert('User Registered successfully...');
                         }
                         else
                             alert('Unable to register');
-                        
 
-                      
+
+
                     },
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
                     
@@ -242,4 +249,5 @@
 
         kendo.bind($("#signUp"), viewModel);
         ////})();
-    </script>
+    </script>-->
+
