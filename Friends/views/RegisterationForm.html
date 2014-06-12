@@ -128,117 +128,55 @@
 
     <!--</div>-->
 
- <!--   <script>
+
+    <!--<script>
 
         //var app = app || {};
         //app.Trial = (function () {
 
-   
+        debugger;
         'use strict';
         var viewModel = kendo.observable({
             name: "",
-            lastname: "",
-            expectedsalary: "",
-            currentsalary: "",
+            surname: "",
+            address: "",
             email: "",
-            contact: "",
-            dob: "",
-            experience: "",
-            currentcompany: "",
-            currentsalary: "",
-            expectedsalary: "",
-            noticeperiod: "",
-
-
-            //updateUserDetails: function () {
-
-
-            //    debugger;
-            //    jQuery.support.cors = true;
-            //    $.ajax({
-            //        cache: false,
-            //        requestType: "GET",
-            //        dataType: "JSON",
-            //        url: "http://localhost:49253/api/recruit/InterviewDetails",
-
-            //        //data: {
-            //        //    name: viewModel.get("name"),
-            //        //    surname: viewModel.get("surname"),
-            //        //    address: viewModel.get("address"),
-            //        //    email: viewModel.get("email")
-            //        //},
-
-            //        success: function (data) {
-            //            debugger;
-
-            //            viewModel.set("name", data.FirstName);
-            //            viewModel.set("lastname", data.LastName);
-            //            viewModel.set("expectedsalary", data.ExpectedSalary);
-            //            viewModel.set("currentsalary", data.CurrentSalary);
-            //            viewModel.set("email", data.EmailId);
-            //            viewModel.set("contact", data.ContactNumber);
-            //            viewModel.set("dob", data.DOB);
-            //            viewModel.set("experience", data.Experience);
-            //            viewModel.set("currentcompany", data.CurrentOrganization);
-            //            viewModel.set("currentsalary", data.CurrentSalary);
-            //            viewModel.set("expectedsalary", data.ExpectedSalary);
-            //            viewModel.set("noticeperiod", data.NoticePeriod);
-            //        },
-
-            //        error: function (XMLHttpRequest, textStatus, errorThrown) {
-            //            debugger;
-            //            alert(textStatus + ":" + errorThrown);
-            //        }
-            //    });
-
-
-
-
-
-            //}
 
 
             updateUserDetails: function () {
 
 
-           
+                debugger;
                 jQuery.support.cors = true;
-                var getdata = {
-                    name: viewModel.get("name"),
-                    surname: viewModel.get("lastname"),
-                    address: viewModel.get("address"),
-                    email: viewModel.get("expectedsalary"),
-                    //email: viewModel.get("currentsalary"),
-                    //email: viewModel.get("email"),
-                    //email: viewModel.get("contact"),
-                    //email: viewModel.get("dob"),
-                    //email: viewModel.get("experience"),
-                    //email: viewModel.get("currentcompany"),
-                    //email: viewModel.get("currentsalary"),
-                    //email: viewModel.get("expectedsalary"),
-                    //email: viewModel.get("noticeperiod")
-                };
+                //var updateOptions = {
+
+                //    url: "http://localhost:52812/api/recruit/SaveInterviewDetails",
+                //    Type: "POST",
+                //    dataType: "JSON",
+                //    data: JSON.stringify(name = ""),
+                //    contentType: "application/json"
+                //}
+                var name = { FirstName: "Scott", LastName: "HP",Address : "ADD",emailAddress :"sd" };
                 $.ajax({
-                    cache: false,
-                    requestType: "POST",
-                    dataType: "JSON",
+                    type: "POST",
+                    data: JSON.stringify(name),
+                    url: "http://localhost:52812/api/recruit/SaveInterviewDetails",
                     contentType: "application/json",
-                    url: "http://localhost:49253/api/Candidate/InsertCandidateDetails",
-                    data: JSON.stringify(getdata),
+              //  });                
 
                     success: function (data) {
-                     
-                        if (data == true) {
-                            alert('User Registered successfully...');
-                        }
-                        else
-                            alert('Unable to register');
+                        debugger;
 
+                        viewModel.set("name", data.FirstName);
+                        viewModel.set("surname", data.LastName);
+                        viewModel.set("address", data.Address);
+                        viewModel.set("email", data.emailAddress);
 
 
                     },
+
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    
+                        debugger;
                         alert(textStatus + ":" + errorThrown);
                     }
                 });
@@ -247,7 +185,8 @@
         });
 
 
-        kendo.bind($("#signUp"), viewModel);
-        ////})();
+        kendo.bind($("#signup-form"), viewModel);
+        //})();
     </script>-->
+
 
