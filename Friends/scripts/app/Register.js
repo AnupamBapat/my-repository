@@ -49,8 +49,9 @@ app.Trial = (function () {
                 //  });                
 
                 success: function (data) {
-                    
-Alert("Test");
+                    if(data){
+                    Alert("Test");
+                    }
                     
 
 
