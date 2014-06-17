@@ -68,15 +68,15 @@ app.Trial = (function () {
                 var ddl = $("#signupHighlevelPicker");
                 var dataSource = [];
                 for (i = 0; i < data.length; i++) {
-                  //  dataSource.push({ "DriveName": data[i].DriveName })
-                    ddl.append($("<option></option>").val(data[i].DriveName).html(data[i].DriveName));
+                   dataSource.push({ "DriveName": data[i].DriveName })
+                   // ddl.append($("<option></option>").val(data[i].DriveName).html(data[i].DriveName));
                 };
                // OrderUomTypes: dataSource
-                //$("#ddlCompany").kendoMobileDropDownList({
-                //    dataTextField: "DriveName",
-                //    dataValueField: "DriveName",
-                //    dataSource: dataSource
-                //});
+                $("#signupHighlevelPicker").kendoMobileDropDownList({
+                   dataTextField: "DriveName",
+                   dataValueField: "DriveName",
+                    dataSource: dataSource
+                });
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 
