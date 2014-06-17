@@ -56,7 +56,7 @@ app.Trial = (function () {
         },
         updatedropdowndetails: function () {
             jQuery.support.cors = true;
-            debugger;
+         
         $.ajax({
             
             type: "GET",
