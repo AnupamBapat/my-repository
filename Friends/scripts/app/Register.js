@@ -56,27 +56,41 @@ app.Trial = (function () {
         },
         updatedropdowndetails: function () {
             jQuery.support.cors = true;
-           
+            debugger;
         $.ajax({
             
             type: "GET",
             url: "https://betamike.cognizant.com/api/Candidate/GetDriveDetails",
             contentType: "application/json",
-            
+         
             success: function (data) {
                alert("Test");
                 var ddl = $("#signupHighlevelPicker");
                 var dataSource = [];
                 for (i = 0; i < data.length; i++) {
-                   dataSource.push({ "DriveName": data[i].DriveName })
-                   // ddl.append($("<option></option>").val(data[i].DriveName).html(data[i].DriveName));
+                    dataSource.push({ "DriveName": data[i].DriveName })
+                  //  ddl.append($("<option></option>").val(data[i].DriveName).html(data[i].DriveName));
                 };
+         
+                if (kendo.ui.DropDownList) {
+             
+                    $("#signupHighlevelPicker").kendoDropDownList({
+                        // The options are needed only for the desktop demo, remove them for mobile.
+                        dataTextField: "DriveName",
+                        dataValueField: "DriveName",
+                        dataSource: dataSource
+                      //  popup: { appendTo: body },
+                       // animation: { open: { effects: body.hasClass("km-android") ? "fadeIn" : body.hasClass("km-ios") || body.hasClass("km-wp") ? "slideIn:up" : "slideIn:down" } }
+                    });
+                }
+
+                
                // OrderUomTypes: dataSource
-                $("#signupHighlevelPicker").kendoMobileDropDownList({
-                   dataTextField: "DriveName",
-                   dataValueField: "DriveName",
-                    dataSource: dataSource
-                });
+                //$("#ddlCompany").kendoMobileDropDownList({
+                //    dataTextField: "DriveName",
+                //    dataValueField: "DriveName",
+                //    dataSource: dataSource
+                //});
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 
@@ -91,5 +105,3 @@ app.Trial = (function () {
     return viewModel;
 
 }());
-
-
