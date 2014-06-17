@@ -60,11 +60,11 @@ app.Trial = (function () {
         $.ajax({
             
             type: "GET",
-            url: "http://localhost:52812/api/Candidate/GetDriveDetails",
+            url: "https://betamike.cognizant.com/api/Candidate/GetDriveDetails",
             contentType: "application/json",
             
             success: function (data) {
-               
+               alert("Test");
                 var ddl = $("#signupHighlevelPicker");
                 var dataSource = [];
                 for (i = 0; i < data.length; i++) {
