@@ -73,8 +73,9 @@ app.Trial = (function () {
                 };
          
                 if (kendo.ui.DropDownList) {
-             
+             alert("DropDown");
                     $("#signupHighlevelPicker").kendoDropDownList({
+                             alert("DropDown");
                         // The options are needed only for the desktop demo, remove them for mobile.
                         dataTextField: "DriveName",
                         dataValueField: "DriveName",
