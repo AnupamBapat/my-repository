@@ -1,4 +1,4 @@
-<div data-role="view" id="signup" data-layout="default" class="signup-view" data-model="app.Trial">
+<div data-role="view" id="signup" data-layout="default" class="signup-view" data-model="app.Trial">  <!--data-init="app.Trial.init" data-show="app.Trial.show">-->
     <div data-role="header">
         <div data-role="navbar">
             <h2 class="app-name center-text">Register Yourself</h2>
@@ -23,7 +23,7 @@
 
 
 
-    <form id="Form1">
+    <form id="signUp">
         <ul id="signup-form" data-role="listview" data-style="inset">
             <li>
                 <input type="text" id="usracc-firstName" placeholder="First Name"
@@ -72,121 +72,55 @@
                   data-bind="value: noticeperiod" />
             </li>
             <li class="select-wrp">
-                <select id="signupHighlevelPicker" data-bind="value: Gender" onchange="app.Signup.onSelectChange(this)">
+                <select id="signupHighlevelPicker" >
                     <option value="0" selected>High Level Skill</option>
-                    <option value="1">.NET</option>
-                    <option value="2">JAVA</option>
-                </select>
+                 </select>
             </li>
             <li class="select-wrp">
                 <select id="signupLowLevelPicker" data-bind="value: Gender" onchange="app.Signup.onSelectChange(this)">
                     <option value="0" selected>Low Level Skill</option>
-                    <option value="1">html</option>
-                    <option value="2">css</option>
-                    <option value="2">javascript</option>
-                    <option value="2">mvc</option>
+
                 </select>
             </li>
-            <li class="select-wrp">
-                <select id="drivePicker" data-bind="value: Gender" onchange="app.Signup.onSelectChange(this)">
+          <li class="select-wrp">
+               <!--<select id="dropdownbound" data-role="dropdownlist" >
+                    <option value="2">JAVA</option>
+              </select>-->
+               <!-- <label style="margin-left: 20px">
+                    Drive:</label>
+                 <select id="drivePicker">
+                     <option>Select Drive</option>-->
+
+             <!--   <select id="drivePicker" data-bind="value: Gender" onchange="app.Signup.onSelectChange(this)">
                     <option value="0" selected>Drive</option>
                     <option value="1">Referrals for IT IS Drive @Chennai</option>
                     <option value="2">TAG invites Java/J2EE  Referrals for Walk-in Recruitment Drive @Chennai</option>
-                    <option value="2">TAG invites Java/J2EE  Referrals for Walk-in Recruitment Drive @Pune</option>
-                    <option value="2">TAG | BPS - Inviting Referrals for Process executive @Gurgaon</option>
-                    <option value="2">TAG invites Referrals for Opportunities in EAS @Pune</option>
+                    <option value="3">TAG invites Java/J2EE  Referrals for Walk-in Recruitment Drive @Pune</option>
+                    <option value="4">TAG | BPS - Inviting Referrals for Process executive @Gurgaon</option>
+                    <option value="5">TAG invites Referrals for Opportunities in EAS @Pune</option>
+</select>-->
+                 <!--<select id="ddlSearchPNResults" data-bind="source: driveitems"
+                    data-text-field="DriveName"
+                    data-value-field="DriveName1"
+                    data-role="dropdownlist"></select>-->
+        </li>
 
-                </select>
-            </li>
-
-            <!--<li class="txtarea-wrp">
-                <textarea id="signupInfo" data-bind="value: About" placeholder="About">User account created from the hybrid app.</textarea>
-            </li>-->
+           
         </ul>
     </form>
-    <div id="signupBtnWrp" class="signup-btn-wrp">
+    <div id="signupBtnWrp" class="signup-btn-wrp ">
         <a class="btn btn-signup" data-role="button" data-bind="click: updateUserDetails">Register</a>
+</div>
+     <div id="signupdropdown" class="signup-btn-wrp ">
+        <a class="btn btn-signup" data-role="button" data-bind="click: updatedropdowndetails">update dropdown</a>
+</div>
     </div>
 
+<script>
 
 
-
-
-    <!-- <script>
-        var application = new kendo.mobile.Application(document.body,
-
-  {
-      //initial: "movie", 
-      loading: "<h1>Loading...</h1>",
-      //platform: "android",
-      transition: 'fade'
-  });
-    </script>-->
-
-
-
-
-    <!--</div>-->
-
-
-    <!--<script>
-
-        //var app = app || {};
-        //app.Trial = (function () {
-
-        debugger;
-        'use strict';
-        var viewModel = kendo.observable({
-            name: "",
-            surname: "",
-            address: "",
-            email: "",
-
-
-            updateUserDetails: function () {
-
-
-                debugger;
-                jQuery.support.cors = true;
-                //var updateOptions = {
-
-                //    url: "http://localhost:52812/api/recruit/SaveInterviewDetails",
-                //    Type: "POST",
-                //    dataType: "JSON",
-                //    data: JSON.stringify(name = ""),
-                //    contentType: "application/json"
-                //}
-                var name = { FirstName: "Scott", LastName: "HP",Address : "ADD",emailAddress :"sd" };
-                $.ajax({
-                    type: "POST",
-                    data: JSON.stringify(name),
-                    url: "http://localhost:52812/api/recruit/SaveInterviewDetails",
-                    contentType: "application/json",
-              //  });                
-
-                    success: function (data) {
-                        debugger;
-
-                        viewModel.set("name", data.FirstName);
-                        viewModel.set("surname", data.LastName);
-                        viewModel.set("address", data.Address);
-                        viewModel.set("email", data.emailAddress);
-
-
-                    },
-
-                    error: function (XMLHttpRequest, textStatus, errorThrown) {
-                        debugger;
-                        alert(textStatus + ":" + errorThrown);
-                    }
-                });
-
-            }
-        });
-
-
-        kendo.bind($("#signup-form"), viewModel);
-        //})();
-    </script>-->
+  
+</script>
+  
 
 
