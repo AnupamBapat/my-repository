@@ -1,124 +1,193 @@
-<div data-role="view" id="signup" data-layout="default" class="signup-view" data-model="app.Trial">  <!--data-init="app.Trial.init" data-show="app.Trial.show">-->
-    <div data-role="header">
-        <div data-role="navbar">
-            <h2 class="app-name center-text">Register Yourself</h2>
-            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton" href="#welcome">Back</a>
-        </div>
-    </div>
-<!--    <head>
-    <script>
-        var Recrux = Recrux || {};
-    </script>
-    <meta name="viewport"
-        content="width=device-width" />
-    <script src="../kendo/js/jquery.min.js"></script>
-    <script src="../kendo/js/kendo.mobile.min.js"></script>
-    <link href="../kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
-
-
-    <title>Sign Up</title>
-
-
-</head>-->
-
-
-
-    <form id="Form1">
-        <ul id="signup-form" data-role="listview" data-style="inset">
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="http://demos.telerik.com/kendo-ui/mobile-forms/index">
+    <style>html { font-size: 12px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link href="http://cdn.kendostatic.com/2014.1.528/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="http://cdn.kendostatic.com/2014.1.528/styles/kendo.default.min.css" rel="stylesheet" />
+    <link href="http://cdn.kendostatic.com/2014.1.528/styles/kendo.dataviz.min.css" rel="stylesheet" />
+    <link href="http://cdn.kendostatic.com/2014.1.528/styles/kendo.dataviz.default.min.css" rel="stylesheet" />
+    <link href="http://cdn.kendostatic.com/2014.1.528/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+    <script src="http://cdn.kendostatic.com/2014.1.528/js/jquery.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2014.1.528/js/kendo.all.min.js"></script>
+</head>
+<body>
+    <div id="forms" data-role="view" data-title="Form Elements" data-init="initForm" data-use-native-scrolling="true">
+    <form action="./index.html">
+        <ul data-role="listview" data-style="inset">
             <li>
-                <input type="text" id="usracc-firstName" placeholder="First Name"
-                    data-bind="value: name" />
+                <label>Select element
+                    <select>
+                        <option value="First Option">First Option</option>
+                        <option value="Second Option">Second Option</option>
+                        <option value="Third Option">Third Option</option>
+                        <option value="Fourth Option">Fourth Option</option>
+                    </select>
+                </label>
             </li>
             <li>
-                <input type="text" id="usracc-lastName" placeholder="Last Name"
-                    data-bind="value: lastname" />
+                <label>DropDownList
+                    <select id="dropdown">
+                       <!-- <option value="First Option">First Option</option>
+                        <option value="Second Option">Second Option</option>
+                        <option value="Third Option">Third Option</option>
+                        <option value="Fourth Option">Fourth Option</option>
+                        <option value="First Option">Fifth Option</option>
+                        <option value="Sixth Option">Sixth Option</option>-->
+                    </select>
+                </label>
             </li>
             <li>
-               <input type="text" id="usracc-contact" placeholder="Contact No"
-                   data-bind="value: contact" />
-            </li>
-
-            <li>
-                <input type="text" id="usracc-emailaddress" placeholder="Email"
-                    data-bind="value: email" />
+                <label>Slider
+                    <input id="slider" type="range" max="100" />
+                </label>
             </li>
             <li>
-               <input type="date" id="usracc-dob"
-                   data-bind="value: dob" />
-
+                <label>Type text
+                    <input type="text" value="Text" />
+                </label>
             </li>
             <li>
-               <input type="text" id="usracc-exp" placeholder="Experience"
-                   data-bind="value: experience" />
-
-            </li>
-
-            <li>
-                <input type="text" id="usracc-company" placeholder="Current Company"
-                    data-bind="value: currentcompany" />
-            </li>
-
-            <li>
-                <input type="text" id="usracc-currentsalary" placeholder="Current Salary"
-                    data-bind="value: currentsalary" />
+                <label>
+                Type password
+                <input type="password" value="password" />
+                </label>
             </li>
             <li>
-                <input type="text" id="usracc-expectedsalary" placeholder="Expected Salary"
-                    data-bind="value: expectedsalary" />
+                <label>
+                Type search
+                <input type="search" value="search" />
+                </label>
             </li>
-
             <li>
-              <input type="text" id="usracc-noticeperiod" placeholder="Notice Period"
-                  data-bind="value: noticeperiod" />
+                <label>
+                Type url
+                <input type="url" value="http://www.telerik.com" />
+                </label>
             </li>
-            <li class="select-wrp">
-                <select id="signupHighlevelPicker" >
-                   <!-- <option value="0" selected>High Level Skill</option>-->
-                 </select>
+            <li>
+                <label>
+                    Type email
+                    <input type="email" value="kendoui@telerik.com" />
+                </label>
             </li>
-            <li class="select-wrp">
-                <select id="signupLowLevelPicker" data-bind="value: Gender" onchange="app.Signup.onSelectChange(this)">
-                    <option value="0" selected>Low Level Skill</option>
-
-                </select>
+            <li>
+                <label>
+                    Type number
+                    <input type="number" value="20" />
+                </label>
             </li>
-          <li class="select-wrp">
-               <!--<select id="dropdownbound" data-role="dropdownlist" >
-                    <option value="2">JAVA</option>
-              </select>-->
-               <!-- <label style="margin-left: 20px">
-                    Drive:</label>
-                 <select id="drivePicker">
-                     <option>Select Drive</option>-->
-
-             <!--   <select id="drivePicker" data-bind="value: Gender" onchange="app.Signup.onSelectChange(this)">
-                    <option value="0" selected>Drive</option>
-                    <option value="1">Referrals for IT IS Drive @Chennai</option>
-                    <option value="2">TAG invites Java/J2EE  Referrals for Walk-in Recruitment Drive @Chennai</option>
-                    <option value="3">TAG invites Java/J2EE  Referrals for Walk-in Recruitment Drive @Pune</option>
-                    <option value="4">TAG | BPS - Inviting Referrals for Process executive @Gurgaon</option>
-                    <option value="5">TAG invites Referrals for Opportunities in EAS @Pune</option>
-</select>-->
-                 <!--<select id="ddlSearchPNResults" data-bind="source: driveitems"
-                    data-text-field="DriveName"
-                    data-value-field="DriveName1"
-                    data-role="dropdownlist"></select>-->
-        </li>
-
-           
+            <li>
+                <label>
+                    Type tel
+                    <input type="tel" value="+44 22 11 10" />
+                </label>
+            </li>
+            <li>
+                <label>
+                    Type date
+                    <input type="date" value="2012-03-22" />
+                </label>
+            </li>
+            <li>
+                <label>
+                    Type time
+                    <input type="time" value="22:30" />
+                </label>
+            </li>
+            <li>
+                <label>
+                    Type month
+                    <input type="month" value="2012-01" />
+                </label>
+            </li>
+            <li>
+                <label>
+                    Type datetime-local
+                    <input type="datetime-local" value="2012-03-22T20:15" />
+                </label>
+            </li>
+            <li>
+                <label>
+                    Textarea
+                    <textarea style="resize: none">Multiline
+Text</textarea>
+                </label>
+            </li>
         </ul>
     </form>
-    <div id="signupBtnWrp" class="signup-btn-wrp ">
-        <a class="btn btn-signup" data-role="button" data-bind="click: updateUserDetails">Register</a>
+         <div id="signupdropdown" class="signup-btn-wrp ">
+        <a  data-role="button" onclick="updatedropdowndetails()">update dropdown</a>
 </div>
-     <div id="signupdropdown" class="signup-btn-wrp ">
-        <a class="btn btn-signup" data-role="button" data-bind="click: updatedropdowndetails">update dropdown</a>
 </div>
-    </div>
+    
+<script>
+    function updatedropdowndetails() {
+        jQuery.support.cors = true;
+       
+        $.ajax({
+            
+            type: "GET",
+            url: "https://betamike.cognizant.com/api/Candidate/GetDriveDetails",
+            contentType: "application/json",
+         
+            success: function (data) {
+                alert("Test");
+                var ddl = $("#signupHighlevelPicker");
+                var dataSource = [];
+                for (i = 0; i < data.length; i++) {
+                    dataSource.push({ "DriveName": data[i].DriveName })
+                    //  ddl.append($("<option></option>").val(data[i].DriveName).html(data[i].DriveName));
+                };
+         
+                if (kendo.ui.DropDownList) {
+                  
+                    $("#dropdown").kendoDropDownList({
+                        // The options are needed only for the desktop demo, remove them for mobile.
+                        dataTextField: "DriveName",
+                        dataValueField: "DriveName",
+                        dataSource: dataSource
+                        //  popup: { appendTo: body },
+                        // animation: { open: { effects: body.hasClass("km-android") ? "fadeIn" : body.hasClass("km-ios") || body.hasClass("km-wp") ? "slideIn:up" : "slideIn:down" } }
+                    });
+                }
+
+                
+                // OrderUomTypes: dataSource
+                //$("#ddlCompany").kendoMobileDropDownList({
+                //    dataTextField: "DriveName",
+                //    dataValueField: "DriveName",
+                //    dataSource: dataSource
+                //});
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                
+        
+            }
+        });
+    }
+    function initForm() {
+        var body = $(".km-pane");
+       
+        //if (kendo.ui.DropDownList) {
+        //    $("#dropdown").kendoDropDownList({
+        //        // The options are needed only for the desktop demo, remove them for mobile.
+              
+              
+        //    });
+        //}
+
+        if (kendo.ui.Slider) {
+            $("#slider").kendoSlider({ tooltip: { enabled: false } });
+        }
+    }
+</script>
+
 
 <script>
-
-
-  
+    var app = new kendo.mobile.Application(document.body);
 </script>
-  
+</body>
+</html>
+
