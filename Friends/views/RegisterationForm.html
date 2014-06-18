@@ -11,6 +11,7 @@
     <link href="http://cdn.kendostatic.com/2014.1.528/styles/kendo.mobile.all.min.css" rel="stylesheet" />
     <script src="http://cdn.kendostatic.com/2014.1.528/js/jquery.min.js"></script>
     <script src="http://cdn.kendostatic.com/2014.1.528/js/kendo.all.min.js"></script>
+    <script src="scripts/kendo.dropdownlist.min.js"></script>
 </head>
 <body>
     <div id="forms" data-role="view" data-title="Form Elements" data-init="initForm" data-use-native-scrolling="true">
@@ -79,7 +80,8 @@
                     //  ddl.append($("<option></option>").val(data[i].DriveName).html(data[i].DriveName));
                 };
          
-             
+             if (kendo.ui.DropDownList) {
+                  alert("dropdown");
                     $("#dropdown").kendoMobileDropDownList({
                         // The options are needed only for the desktop demo, remove them for mobile.
                         alert("dropdown");
@@ -90,7 +92,7 @@
                      //animation: { open: { effects: body.hasClass("km-android") ? "fadeIn" : body.hasClass("km-ios") || body.hasClass("km-wp") ? "slideIn:up" : "slideIn:down" } }
                     });
                 
-                
+             }
                 // OrderUomTypes: dataSource
                 //$("#ddlCompany").kendoMobileDropDownList({
                 //    dataTextField: "DriveName",
