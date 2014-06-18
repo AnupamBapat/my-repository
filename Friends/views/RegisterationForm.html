@@ -79,18 +79,17 @@
                     //  ddl.append($("<option></option>").val(data[i].DriveName).html(data[i].DriveName));
                 };
          
-                if (kendo.ui.DropDownList) {
-                  
-                    $("#dropdown").kendoDropDownList({
+             
+                    $("#dropdown").kendoMobileDropDownList({
                         // The options are needed only for the desktop demo, remove them for mobile.
+                        alert("dropdown");
                         dataTextField: "DriveName",
                         dataValueField: "DriveName",
                         dataSource: dataSource
                         // popup: { appendTo: body },
                      //animation: { open: { effects: body.hasClass("km-android") ? "fadeIn" : body.hasClass("km-ios") || body.hasClass("km-wp") ? "slideIn:up" : "slideIn:down" } }
                     });
-                }
-
+                
                 
                 // OrderUomTypes: dataSource
                 //$("#ddlCompany").kendoMobileDropDownList({
