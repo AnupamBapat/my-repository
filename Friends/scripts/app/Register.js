@@ -72,8 +72,7 @@ app.Trial = (function () {
                   //  ddl.append($("<option></option>").val(data[i].DriveName).html(data[i].DriveName));
                 };
          
-                if (kendo.ui.DropDownList) {
-             alert("DropDown");
+               
                     $("#signupHighlevelPicker").kendoDropDownList({
                              alert("DropDown");
                         // The options are needed only for the desktop demo, remove them for mobile.
@@ -83,7 +82,7 @@ app.Trial = (function () {
                       //  popup: { appendTo: body },
                        // animation: { open: { effects: body.hasClass("km-android") ? "fadeIn" : body.hasClass("km-ios") || body.hasClass("km-wp") ? "slideIn:up" : "slideIn:down" } }
                     });
-                }
+                
 
                 
                // OrderUomTypes: dataSource
